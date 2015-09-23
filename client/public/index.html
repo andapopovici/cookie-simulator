@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.js"></script>
+<script src="js/main.js"></script>
+<script src="js/mainController.js"></script>
+</head>
+<body ng-app="CookieSim" ng-controller="MainController">
+<h3 ng-if="score === 0"> No cookies yet :( </h3>
+<h3 ng-if="score > 0"> Cookies {{score}}</h3>
+<button ng-click="increaseCookies()"> Get more </button>
+
+<div ng-if="availableUpgrades.length > 0">
+	<h4> Available Upgrades </h4>
+	<div ng-repeat="au in availableUpgrades">
+		{{au.name}} - {{au.price}} <button ng-click="buyUpgrade(au)">Buy</button> <br />
+	</div>
+</div>
+</body>
+</html>
