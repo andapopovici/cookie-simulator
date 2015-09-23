@@ -8,13 +8,24 @@
 <body ng-app="CookieSim" ng-controller="MainController">
 <h3 ng-if="score === 0"> No cookies yet :( </h3>
 <h3 ng-if="score > 0"> Cookies {{score}}</h3>
-<button ng-click="increaseCookies()"> Get more </button>
+<button ng-click="increaseCookies()" style="float:left"> Get more </button>
+<br style="clear: both"/>
+<div style="float: left; margin-right: 30px">
+	<h4> My upgrades </h4>
+	<p ng-if="formattedUpgrades.length === 0"> No upgrades purchased </p>
+	<div ng-repeat="fu in formattedUpgrades">
+		<div ng-if="fu.name">{{fu.number}} x {{fu.name}}</div>
+	</div>
+</div>
 
-<div ng-if="availableUpgrades.length > 0">
+<div  style="float: left">
 	<h4> Available Upgrades </h4>
+	<div ng-if="availableUpgrades.length === 0"> No upgrades available </div>
 	<div ng-repeat="au in availableUpgrades">
 		{{au.name}} - {{au.price}} <button ng-click="buyUpgrade(au)">Buy</button> <br />
 	</div>
 </div>
+
+
 </body>
 </html>
