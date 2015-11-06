@@ -1,5 +1,20 @@
-$ = jQuery = require('jquery');
+'use strict';
 
-var App = console.log('Hello world from Browserify');
+var React = require('react');
+var Title = require('./components/title');
+var Score = require('./components/score');
+var IncreaseButton = require('./components/increaseButton');
 
-module.exports = App;
+var App = React.createClass({
+    render: function () {
+        return (
+            <div>
+                <Title />
+                <Score />
+                <IncreaseButton />
+            </div>
+        );
+    }
+});
+
+React.render(<App />, document.getElementById('app'));
