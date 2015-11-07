@@ -4,6 +4,7 @@ var React = require('react');
 var Title = require('./components/title');
 var Score = require('./components/score');
 var IncreaseButton = require('./components/increaseButton');
+var AvailableUpgrades = require('./components/availableUpgrades');
 
 var App = React.createClass({
     render: function () {
@@ -12,6 +13,7 @@ var App = React.createClass({
                 <Title />
                 <Score />
                 <IncreaseButton />
+                <AvailableUpgrades />
             </div>
         );
     }
