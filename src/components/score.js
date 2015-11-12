@@ -1,27 +1,34 @@
 'use strict';
 
-var React = require('react');
+import React from 'react';
 var ScoreStore = require('../stores/scoreStore');
 
-function getScore(){
-    return {score: ScoreStore.get()};
-}
+class Score extends React.Component {
+    constructor(){
+        super();
+        this.state = this.getScoreState();
+        this._onChange = this._onChange.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
+        this.render = this.render.bind(this);
+    }
 
-var Score = React.createClass({
-    _onChange: function() {
-        this.setState(getScore());
-    },
-    getInitialState: function(){
-        return getScore();
-    },
-    componentDidMount: function() {
+    getScoreState(){
+        return {score: ScoreStore.get()};
+    }
+
+    _onChange() {
+        this.setState(this.getScoreState());
+    }
+
+    componentDidMount() {
         ScoreStore.addChangeListener(this._onChange);
-    },
-    render: function () {
+    }
+
+    render() {
         return (
                 <h2> Your score is {this.state.score}</h2>
         );
     }
-});
+}
 
-module.exports = Score;
+export default Score;

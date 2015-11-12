@@ -1,32 +1,39 @@
 'use strict';
 
-var React = require('react');
+import React from 'react';
 var UpgradesStore = require('../stores/upgradesStore');
 
-function getAvailableUpgrades(){
-    return {upgrades: UpgradesStore.getAvailableUpgrades()};
-}
+class AvailableUpgrades extends React.Component{
+    constructor() {
+        super();
+        this.state = this.getAvailableUpgrades();
+        this._onChange = this._onChange.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
+        this.render = this.render.bind(this);
+    }
 
-var AvailableUpgrades = React.createClass({
-    _onChange: function() {
-        this.setState(getAvailableUpgrades());
-    },
-    getInitialState: function(){
-        return getAvailableUpgrades();
-    },
-    componentDidMount: function() {
+    _onChange() {
+        this.setState(this.getAvailableUpgrades());
+    }
+
+    getAvailableUpgrades() {
+        return {upgrades: UpgradesStore.getAvailableUpgrades()};
+    }
+
+    componentDidMount() {
         UpgradesStore.addAvailableUpgradesChangeListener(this._onChange);
-    },
-    render: function () {
+    }
+
+    render() {
         return (
             <div>
                 <h3> Available upgrades:</h3>
-                {this.state.upgrades.map(function(item){
-                    return <p> {item.name} </p>;
+                {this.state.upgrades.map(function(item, idx){
+                    return <p key={idx}> {item.name} </p>;
                 })}
             </div>
         );
     }
-});
+}
 
-module.exports = AvailableUpgrades;
+export default AvailableUpgrades;

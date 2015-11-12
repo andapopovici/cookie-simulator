@@ -1,13 +1,13 @@
 'use strict';
 
-var React = require('react');
+import React from 'react';
 
-var Title = React.createClass({
-    render: function () {
+class Title extends React.Component {
+    render() {
         return (
                 <h1> Universe creator </h1>
         );
     }
-});
+}
 
-module.exports = Title;
+export default Title;

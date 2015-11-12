@@ -1,18 +1,23 @@
 'use strict';
 
-var React = require('react');
+import React from 'react';
 import ScoreActions from '../actions/scoreActionsCreator';
 
-var IncreaseButton = React.createClass({
-    _onClick: function(){
-        ScoreActions.increaseByOne();
-    },
+class IncreaseButton extends React.Component {
+    constructor(){
+        super();
+        this.render = this.render.bind(this);
+    }
 
-    render: function () {
+    _onClick() {
+        ScoreActions.increaseByOne();
+    }
+
+    render() {
         return (
             <button onClick={this._onClick}> +1 </button>
         );
     }
-});
+}
 
-module.exports = IncreaseButton;
+export default IncreaseButton;

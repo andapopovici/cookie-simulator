@@ -1,14 +1,13 @@
 'use strict';
 
-var React = require('react');
-var Title = require('./components/title');
-var Score = require('./components/score');
-var IncreaseButton = require('./components/increaseButton');
-var AvailableUpgrades = require('./components/availableUpgrades');
-const whatever = '';
+import React from 'react';
+import Title from './components/title';
+import Score from './components/score';
+import IncreaseButton from './components/increaseButton';
+import AvailableUpgrades from './components/availableUpgrades';
 
-var App = React.createClass({
-    render: function () {
+class App extends React.Component {
+    render() {
         return (
             <div>
                 <Title />
@@ -18,6 +17,6 @@ var App = React.createClass({
             </div>
         );
     }
-});
+}
 
 React.render(<App />, document.getElementById('app'));
