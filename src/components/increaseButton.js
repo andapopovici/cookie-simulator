@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var ScoreActions = require('../actions/scoreActionsCreator');
+import ScoreActions from '../actions/scoreActionsCreator';
 
 var IncreaseButton = React.createClass({
     _onClick: function(){

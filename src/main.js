@@ -5,6 +5,7 @@ var Title = require('./components/title');
 var Score = require('./components/score');
 var IncreaseButton = require('./components/increaseButton');
 var AvailableUpgrades = require('./components/availableUpgrades');
+const whatever = '';
 
 var App = React.createClass({
     render: function () {
