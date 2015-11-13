@@ -1,6 +1,6 @@
 'use strict';
 
-var Actions = require('../constants/actions');
+import Actions from '../constants/actions';
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 
 class ScoreActionsCreator {

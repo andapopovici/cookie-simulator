@@ -1,4 +1,4 @@
-var Actions = require('./actions');
+import Actions from './actions';
 
 module.exports = [
     {

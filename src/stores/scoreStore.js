@@ -2,8 +2,8 @@
 
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
-var Events = require('../constants/events');
-var Actions = require('../constants/actions');
+import Events from '../constants/events';
+import Actions from '../constants/actions';
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 
 var score = 0;
